@@ -6,10 +6,6 @@
 
 package sort;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Random;
 
 /**
  *
@@ -24,28 +20,6 @@ public class Main {
         
     }
     
-    public void fillFile(int length, int range, int numberOfBuckets, File fileName){
-        
-        int[] randomArray = new int[length+1];
-        
-        Random random = new Random();
-        
-        randomArray[0] = numberOfBuckets;
-        
-        for(int i = 1; i < randomArray.length; i++){
-            randomArray[i] = random.nextInt(range);
-        }
-        
-        try{
-            PrintWriter writer = new PrintWriter(fileName);
-            for(int i : randomArray){
-                writer.println(i);
-            }
-            writer.close();
-        }catch(FileNotFoundException e){
-            System.err.println("FileNotFoundException: " + e.getMessage());
-        }
-        
-    }
+    
     
 }

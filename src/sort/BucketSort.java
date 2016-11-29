@@ -6,17 +6,23 @@
 
 package sort;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author SyBye8898
  */
 public class BucketSort extends Sort{
     
-    //int arrayLength, range, numberOfBuckets
+    ArrayList<ArrayList<Integer>> buckets = new ArrayList<>();
+    int bucketSize = 10;
     
     @Override
     public int[] sort(int[] input){
-        
+        for(int i : input){
+            buckets.get(i/bucketSize).set(index, i);
+            //index determined by insertion sort
+        }
     }
     
     
