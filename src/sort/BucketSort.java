@@ -14,15 +14,26 @@ import java.util.ArrayList;
  */
 public class BucketSort extends Sort{
     
-    ArrayList<ArrayList<Integer>> buckets = new ArrayList<>();
-    int bucketSize = 10;
     
     @Override
-    public int[] sort(int[] input){
+    public int[] sort(int[] input, int range){
+        ArrayList<Integer> buckets = new ArrayList<>(range);
+        int[] output = new int[input.length];
+        
+        
         for(int i : input){
-            buckets.get(i/bucketSize).set(index, i);
-            //index determined by insertion sort
+            buckets.set(i, i++);
         }
+        int counter;
+        for(int i = 0; i < output.length; i++){
+            counter = buckets.get(i);
+            for(int j = 0; j < counter; j++){
+                output[i] = buckets.indexOf(buckets.get(j));
+                buckets.set(i, (buckets.get(i)-1));
+            }
+        }
+        
+        return output;
     }
     
     

@@ -12,6 +12,6 @@ package sort;
  */
 public abstract class Sort {
     
-    public abstract int[] sort(int[] input);
+    public abstract int[] sort(int[] input, int range);
     
 }

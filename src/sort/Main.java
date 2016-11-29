@@ -6,6 +6,8 @@
 
 package sort;
 
+import java.io.File;
+
 
 /**
  *
@@ -17,6 +19,15 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        File fileName = new File("fileName.txt");
+        
+        Input input = new Input(fileName, 10, 10);
+        input.fillFile();
+        
+        System.out.println(input);
+        
+        BucketSort 
         
     }
     

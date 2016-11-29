@@ -5,8 +5,11 @@
  */
 package sort;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 
@@ -27,6 +30,7 @@ public class Input {
         fileName = _fileName;
         length = _length;
         range = _range;
+        
     }
     
     
@@ -36,19 +40,45 @@ public class Input {
         
         Random random = new Random();
         
-        for(int i : randomArray){
+        /*for(int i : randomArray){
             i = random.nextInt(range);
-        }
+        }*/
         
         try{
             PrintWriter writer = new PrintWriter(fileName);
             for(int i : randomArray){
-                writer.println(i);
+                writer.println(random.nextInt(range));
             }
             writer.close();
         }catch(FileNotFoundException e){
             System.err.println("FileNotFoundException: " + e.getMessage());
         }
     }
+    
+    @Override
+    public String toString(){
+        
+        String output = "";
+        
+        try{
+            FileReader in;
+            BufferedReader readFile;
+            String line;
+            in = new FileReader(fileName);
+            readFile = new BufferedReader(in);
+            while((line = readFile.readLine()) != null){
+                output += " " + line;
+            }
+            readFile.close();
+            in.close();
+        }catch(FileNotFoundException e){
+            System.err.println("FileNotFoundException: " + e.getMessage());
+        }catch(IOException e){
+            System.err.println("IOException: " + e.getMessage());
+        }
+        
+        return output;
+    }
+    
     
 }
