@@ -5,6 +5,7 @@
  */
 package sort;
 
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,6 +13,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
+
 
 /**
  *
@@ -25,18 +27,18 @@ public class Input {
     File fileName;
     int length;
     int range;
+    int[] randomArray;
     
     public Input(File _fileName, int _length, int _range){
         fileName = _fileName;
         length = _length;
         range = _range;
-        
     }
     
     
     public void fillFile(){
         
-        int[] randomArray = new int[length];
+        randomArray = new int[length];
         
         Random random = new Random();
         
@@ -79,6 +81,5 @@ public class Input {
         
         return output;
     }
-    
     
 }
