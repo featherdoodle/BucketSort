@@ -62,6 +62,8 @@ public class Input {
         
         String output = "";
         
+        int lineNumber = 0;
+        
         try{
             FileReader in;
             BufferedReader readFile;
@@ -70,6 +72,8 @@ public class Input {
             readFile = new BufferedReader(in);
             while((line = readFile.readLine()) != null){
                 output += " " + line;
+                randomArray[lineNumber] = Integer.parseInt(line);
+                lineNumber++;
             }
             readFile.close();
             in.close();
