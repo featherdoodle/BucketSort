@@ -33,8 +33,8 @@ public class Main {
         input.fillFile();*/
         
         Random random = new Random();
-        int length = 1000000;
-        int range = 100000;
+        int length = 10000;
+        int range = 10000;
         
         int[] randomArray = new int[length];
         
@@ -59,7 +59,7 @@ public class Main {
         
         //System.out.println(Arrays.toString(output));
         
-        System.out.println(second-first);
+        System.out.println("Time: " + (second-first));
     }
     
     

@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Only necessary for writing input to a file
  */
 package sort;
 
@@ -12,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -21,33 +20,20 @@ import java.util.Random;
  */
 public class Input {
     
-    //int arrayLength, range, numberOfBuckets
-    //adding a new bucket if needed, arraylist of buckets
-    
     File fileName;
-    int length;
-    int range;
-    int[] randomArray;
+    int[] input;
     
-    public Input(File _fileName, int _length, int _range){
+    public Input(File _fileName, int[] _input){
         fileName = _fileName;
-        length = _length;
-        range = _range;
+        input = _input;
     }
     
     
     public void fillFile(){
         
-        randomArray = new int[length];
-        
-        Random random = new Random();
-        
-        
         try{
             PrintWriter writer = new PrintWriter(fileName);
-            for(int i : randomArray){
-                writer.println(random.nextInt(range));
-            }
+            writer.println(Arrays.toString(input));
             writer.close();
         }catch(FileNotFoundException e){
             System.err.println("FileNotFoundException: " + e.getMessage());
@@ -56,8 +42,8 @@ public class Input {
     
     @Override
     public String toString(){
-        
-        String output = "";
+        return Arrays.toString(input);
+        /*String output = "";
         
         int lineNumber = 0;
         
@@ -69,7 +55,7 @@ public class Input {
             readFile = new BufferedReader(in);
             while((line = readFile.readLine()) != null){
                 output += " " + line;
-                randomArray[lineNumber] = Integer.parseInt(line);
+                input[lineNumber] = Integer.parseInt(line);
                 lineNumber++;
             }
             readFile.close();
@@ -80,7 +66,7 @@ public class Input {
             System.err.println("IOException: " + e.getMessage());
         }
         
-        return output;
+        return output;*/
     }
     
 }
