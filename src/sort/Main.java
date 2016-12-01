@@ -10,6 +10,7 @@ package sort;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Random;
 
 
 
@@ -25,23 +26,40 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         /*File fileName = new File("fileName.txt");
         
-        Input input = new Input(fileName, 10, 10);
+        Input input = new Input(fileName, 1000000, 100000);
         input.fillFile();*/
         
-        //for testing purposes:
+        Random random = new Random();
+        int length = 1000000;
+        int range = 100000;
         
-        int[] input = {5, 7, 3, 6, 7, 0, 3, 3};
+        int[] randomArray = new int[length];
         
-        System.out.println(Arrays.toString(input));
+        for(int i = 0; i < randomArray.length; i++){
+            randomArray[i] = random.nextInt(range);
+        }
         
+        int[] output;
+        
+        
+        //System.out.println(Arrays.toString(randomArray));
+        //System.out.println(input);
+        
+        long first = System.nanoTime();
         BucketSort bucketSort = new BucketSort();
         
-        System.out.println(Arrays.toString(bucketSort.sort(input)));
+        output = (bucketSort.sort(randomArray));
         
         //System.out.println(Arrays.toString(bucketSort.sort(input.randomArray)));
         
+        long second = System.nanoTime();
+        
+        //System.out.println(Arrays.toString(output));
+        
+        System.out.println(second-first);
     }
     
     

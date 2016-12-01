@@ -42,9 +42,6 @@ public class Input {
         
         Random random = new Random();
         
-        /*for(int i : randomArray){
-            i = random.nextInt(range);
-        }*/
         
         try{
             PrintWriter writer = new PrintWriter(fileName);
