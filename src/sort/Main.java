@@ -8,11 +8,8 @@
 package sort;
 
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.Random;
-
-
 
 
 /**
@@ -27,14 +24,9 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        /*File fileName = new File("fileName.txt");
-        
-        Input input = new Input(fileName, 1000000, 100000);
-        input.fillFile();*/
-        
         Random random = new Random();
-        int length = 10000;
-        int range = 10000;
+        int length = 100;
+        int range = 100;
         
         int[] randomArray = new int[length];
         
@@ -44,17 +36,13 @@ public class Main {
         
         int[] output;
         
-        
         //System.out.println(Arrays.toString(randomArray));
-        //System.out.println(input);
         
         long first = System.nanoTime();
         BucketSort bucketSort = new BucketSort();
         
         output = (bucketSort.sort(randomArray));
-        
-        //System.out.println(Arrays.toString(bucketSort.sort(input.randomArray)));
-        
+                
         long second = System.nanoTime();
         
         //System.out.println(Arrays.toString(output));
